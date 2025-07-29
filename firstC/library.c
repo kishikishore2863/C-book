@@ -1,7 +1,10 @@
 #include <stdio.h>
 
-void main(void) {
+#include "include/recursion/factorial.h"
 
 
-    printf("%d",10>20 );
+int main() {
+    int result = factorial(5);
+    printf("5! = %d\n", result);
+    return 0;
 }

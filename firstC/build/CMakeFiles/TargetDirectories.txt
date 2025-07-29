@@ -1,0 +1,3 @@
+/Users/kishikishore/CLionProjects/C-Book/firstC/build/CMakeFiles/firstC.dir
+/Users/kishikishore/CLionProjects/C-Book/firstC/build/CMakeFiles/edit_cache.dir
+/Users/kishikishore/CLionProjects/C-Book/firstC/build/CMakeFiles/rebuild_cache.dir

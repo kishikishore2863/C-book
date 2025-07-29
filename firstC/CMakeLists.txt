@@ -1,6 +1,37 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.21)
 project(firstC C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_library(firstC STATIC library.c)
+include_directories(include)
+
+
+add_executable(firstC
+    library.c
+        src/recursion/factorial.c
+        src/logicalOperation.c
+        src/questions/q1.c
+        src/questions/q2.c
+        src/questions/q3.c
+        src/questions/q4.c
+        src/questions/q5.c
+        src/questions/q6.c
+        src/questions/q7.c
+        src/chapter-2/t1.c
+        src/chapter-2/t2.c
+        src/chapter-2/t3.c
+        src/chapter-2/t4.c
+        src/chapter-2/t5.c
+        src/chapter-2/t6.c
+        src/chapter-2/t7.c
+        src/chapter-2/t8.c
+        src/chapter-2/t9.c
+        src/chapter-2/t10.c
+        src/chapter-2/t11.c
+        src/chapter-2/t12.c
+        src/chapter-2/t13.c
+        src/chapter-2/t14.c
+        src/chapter-2/t15.c
+)
+
+target_link_libraries(firstC m)
