@@ -1,0 +1,33 @@
+# C build artifacts
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+*.dSYM/
+*.gcno
+*.gcda
+*.gcov
+
+# TypeScript
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
