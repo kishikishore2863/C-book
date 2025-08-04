@@ -4,6 +4,6 @@
 #include <stdio.h>
 
 void main() {
-    printf("hell\to\n");
-    printf("hell12345678\n");
+    printf("pankaj Ji123\te\n");
+    printf("pankaj Ji1231234e\n");
 }
