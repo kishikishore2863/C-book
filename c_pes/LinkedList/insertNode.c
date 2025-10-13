@@ -17,7 +17,7 @@ int main(){
 
     struct node* Head = &n1;
 
-    struct node* result = insert_node(Head, 13, 2);
+    struct result = insert_node(Head, 13, 2);
 
     while (result != NULL) {
         printf("%d\n",result->data);

@@ -36,17 +36,13 @@ struct node* delete_begin(struct node* head){
 
 struct node* delete_end(struct node* head){
 	struct node* curr = head;
+	struct node* prev = NULL;
 	
-	while(curr != NULL){
-		struct node* prev = curr;
-		struct node* temp = curr->link;
-		if(temp == NULL) {
-			prev = NULL;
-			return head;
-			}
-		curr =curr->link;
+	while(curr->link != NULL){
+		prev =curr;
+		curr = curr->link;
 	}
-
 	
+	prev->link = NULL;
 	return head;
 }
