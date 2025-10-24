@@ -17,8 +17,8 @@ int main(){
 	struct node n1 = {1,&n2};
 	
 	struct node* head = &n1;
-//	struct node* res = Delete_Pos(head, 2, 2);
-	struct node* res = Delete_Content(head ,2);
+	struct node* res = Delete_Pos(head, 2, 2);
+//	struct node* res = Delete_Content(head ,1);
 
 	
 	while(res!=NULL){
@@ -36,8 +36,8 @@ struct node* Delete_Pos(struct node* header, int data, int pos){
 		curr = curr->next;
 		i++;
 	}
-	if(curr==NULL){
-		curr->next = NULL;
+	if(curr==NULL ||  curr->next == NULL){
+		return header;
 	}else{
 		curr->next = curr->next->next;
 	}
@@ -46,6 +46,13 @@ struct node* Delete_Pos(struct node* header, int data, int pos){
 }
 
 struct node*  Delete_Content(struct node* header, int data){
+	if (header == NULL) return header;
+
+    if (header->data == data) {
+        header = header->next;
+        return header;
+    }
+    
 	struct node* curr = header;
 	
 	while(curr->next->data != data && curr!=NULL){
@@ -53,7 +60,7 @@ struct node*  Delete_Content(struct node* header, int data){
 	}
 	
 	if(curr==NULL){
-		curr->next = NULL;
+		return header;
 	}else{
 		curr->next = curr->next->next;
 	}
