@@ -2,14 +2,16 @@
 #include <stdlib.h>
 
 struct node{
-    int data;
-    struct node* next;
-    struct node* prev;
+  int data;
+  struct node* next;
+  struct node* prev;
 };
 
 struct node* insertion_front(struct node* head,int data);
 struct node* insertion_rear(struct node* head,int data);
 void display(struct node* head);
+void display_reverse(struct node* head);
+int people_count(struct node* head);
 
 int main(){
     struct node n1,n2,n3,n4,n5;
@@ -33,10 +35,23 @@ int main(){
     n1.prev = &n5;
 
     struct node* head = &n1;
+    printf("initial CLL :");
+    display(head);
+
+
+    printf("insertion front :");
     struct node* res = insertion_front(head,9);
     display(res);
-    res = insertion_rear(res,9);
+
+    printf("insertion rear :");
+    res = insertion_rear(res,10);
     display(res);
+
+    printf("display reverse :");
+    display_reverse(res);
+
+    printf("***Number of people/Node:%d",people_count(res));
+
 
 
 
@@ -75,4 +90,23 @@ void display(struct node* head){
     printf("\n");
 }
 
+void display_reverse(struct node* head){
+    struct node* curr = head->prev;
+    while(curr!=head){
+        printf("%d <->",curr->data);
+        curr = curr->prev;
+    }
+    printf("%d",head->data);
+    printf("\n");
+}
+
+int people_count(struct node* head){
+    int count=1;
+    struct node* curr = head->next;
+    while(curr!=head){
+        curr = curr->next;
+        count++;
+    }
+    return count;
+}
 
