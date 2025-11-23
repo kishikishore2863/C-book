@@ -1,0 +1,88 @@
+ Due date: Saturday, 29 November 2025, 5:30 AM
+ Maximum number of files: 1
+Type of work:  Individual work
+1.INCIDENT MANAGEMENT USING PRIORITY QUEUE
+
+Every incoming emergency incident must be stored in a Priority Queue.
+
+Each incident has:
+incident_id
+type (Fire / Medical / Crime / Utility)
+severity (1 to 10; higher = more severe)
+location_code (integer)
+status (PENDING / ASSIGNED / RESOLVED)
+
+Priority Rule:
+Primary key: severity (higher served first)
+Secondary key: earliest arrival time
+Tertiary key: type priority (Medical > Fire > Crime > Utility)
+
+Required operations:
+Insert incident into priority queue
+Extract highest-priority incident
+Display full priority queue (sorted)
+Increase severity of an existing incident (priority update)
+Mark incident as RESOLVED
+
+2.EMERGENCY UNIT LIST – LINKED LIST
+
+Maintain a Linked List of available emergency units.
+
+Each node stores:
+unit_id
+unit_type (Ambulance / FireTruck / PatrolCar / UtilityTeam)
+status (AVAILABLE / BUSY)
+
+Required operations:
+Insert new unit
+Search unit by type
+Mark unit as BUSY when assigned
+Mark unit as AVAILABLE when incident is resolved
+Display all units
+
+3.ACTION HISTORY – STACK
+
+Each dispatch operation must be logged in a stack.
+
+Actions include:
+INCIDENT_REPORTED
+INCIDENT_ASSIGNED
+UNIT_RELEASED
+INCIDENT_RESOLVED
+SEVERITY_UPDATED
+
+Stack operations:
+Push action
+Pop action (undo view only, no actual reversal)
+Display activity log
+
+4.SYSTEM WORKFLOW
+
+A. Report New Incident
+Insert into Priority Queue.
+Push “INCIDENT_REPORTED incident_id” onto stack.
+
+B. Assign Emergency Unit
+Extract the top incident.
+Choose the first AVAILABLE matching unit type from the Linked List.
+If no matching unit is available, print “NO UNITS AVAILABLE – INCIDENT QUEUED”.
+Else:
+Mark unit BUSY
+Mark incident ASSIGNED
+Push “INCIDENT_ASSIGNED incident_id -> unit_id” onto stack.
+
+C. Update Severity
+Increase severity of an existing incident.
+Reheapify priority queue.
+Push “SEVERITY_UPDATED incident_id” onto stack.
+
+D. Resolve Incident
+Mark incident RESOLVED
+Mark unit AVAILABLE
+Push “INCIDENT_RESOLVED incident_id”
+Push “UNIT_RELEASED unit_id”
+
+E. Display System State
+Show Priority Queue
+Show Units (Linked List)
+Show Action Stack
