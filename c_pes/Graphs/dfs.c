@@ -13,6 +13,8 @@ struct Graph* createGraph(int num_vertices);
 void addEdge(struct Graph* g, int src , int des);
 void printGraph(struct Graph* g);
 void freeGraph(struct Graph* g);
+void dfs(struct Graph* g);
+void dfsUtil(struct Graph* g,int v, int* visited);
 
 int main() {
     int num_vertices =9;
@@ -36,6 +38,7 @@ int main() {
     addEdge(g,6,2);
     addEdge(g,7,3);
     printGraph(g);
+    dfs(g);
     return 0;
 }
 
@@ -113,3 +116,30 @@ void freeGraph(struct Graph* g) {
     free(g);
 }
 
+
+
+
+void dfsUtil(struct Graph* g,int v, int* visited) {
+    visited[v] = 1;
+    printf("%d ", v);
+
+    for (int i = 0; i < g->vertices; i++) {
+        if (g->adjMatrix[v][i] == 1 && !visited[i]) {
+            dfsUtil(g, i, visited);
+        }
+    }
+}
+
+void dfs(struct Graph* g) {
+    int* visited = (int*)malloc(g->vertices * sizeof(int));
+
+    for (int i = 0; i < g->vertices; i++) {
+        visited[i] = 0;
+    }
+
+    printf("DFS Traversal starting from vertex 0:\n");
+    dfsUtil(g, 0, visited);
+    printf("\n");
+
+    free(visited);
+}
