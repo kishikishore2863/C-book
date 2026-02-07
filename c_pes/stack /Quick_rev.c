@@ -29,18 +29,13 @@ int isEmpty(struct Stack* stack) {
 }
 
 char pop(struct Stack* stack) {
-    if (isEmpty(stack)) {
-        printf("stack is empty and trying to pop garbage value\n");
-        return '\0';
-    }
-    char val = stack->arr[stack->top];
-    stack->top--;
-    return val;
+    if (!isEmpty(stack)) return stack->arr[stack->top--];
+    return '\0';
 }
 
 char peek(struct Stack* stack) {
-    if (isEmpty(stack)) return '\0';
-    return stack->arr[stack->top];
+    if (!isEmpty(stack)) return stack->arr[stack->top];
+    return '\0';
 }
 
 struct Postfix* infix_to_postfix(char* s, int size);
